@@ -11,13 +11,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
- 
-  
+
+
   onLoad(options) {
-    
-    
-   
- 
+
+
+
+
 
 
   },
@@ -70,13 +70,13 @@ Page({
   onShareAppMessage() {
 
   },
-  start:function(){
-    
+  start: function () {
+
     wx.navigateTo({
-      url:"/pages/DifficultySelection/Select"
+      url: "/pages/DifficultySelection/Select"
     })
 
   },
- 
+
 
 })

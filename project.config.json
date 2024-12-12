@@ -35,8 +35,8 @@
     "minifyWXML": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.24.2",
-  "appid": "wxb252bd356deb5acd",
+  "libVersion": "2.25.3",
+  "appid": "touristappid",
   "projectname": "Sudoku",
   "condition": {},
   "editorSetting": {

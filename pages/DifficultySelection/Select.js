@@ -1,19 +1,19 @@
 // pages/DifficultySelection/Select.js
 var a
 Page({
-  
+
   /**
    * 页面的初始数据
    */
   data: {
-    
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+
   },
 
   /**
@@ -64,45 +64,48 @@ Page({
   onShareAppMessage() {
 
   },
-  easy:function(){
+  easy: function () {
     this.tap('easy')
   },
-  normal:function(){
+  normal: function () {
     this.tap('normal')
   },
-  hard:function(){
+  hard: function () {
     this.tap('hard')
   },
-  veryhard:function(){
+  veryhard: function () {
     this.tap('veryhard')
   },
 
-  tap:function(a){
+  tap: function (a) {
     wx.request({
-      url:'http://apis.juhe.cn/fapig/sudoku/generate?key=&difficulty=normal',
-      data:{"key":'f10bf1b5f85dd8ca348ac0b9bd3dac27',"difficulty":a},
-      success:function(res){
-        if(res.data.reason=='success'){
-          console.log(res.data.result) 
+      url: 'http://apis.juhe.cn/fapig/sudoku/generate?key=&difficulty=normal',
+      data: {
+        "key": 'f10bf1b5f85dd8ca348ac0b9bd3dac27',
+        "difficulty": a
+      },
+      success: function (res) {
+        if (res.data.reason == 'success') {
+          console.log(res.data.result)
           wx.setStorage({
-            key:'puzzle',
-            data:res.data.result.puzzle
+            key: 'puzzle',
+            data: res.data.result.puzzle
           })
-          
-        }else{
+
+        } else {
           console.log(res.data.result)
           wx.showToast({
             title: '超过请求次数',
-            icon:"error"
+            icon: "error"
           })
         }
-        
+
       }
-      })
+    })
     wx.navigateTo({
-            url: `/pages/sudoku/sudoku`,
-          })
-    }
-   
-  
+      url: `/pages/sudoku/sudoku`,
+    })
+  }
+
+
 })
