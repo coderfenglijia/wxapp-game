@@ -1,45 +1,68 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <!-- 返回按钮 -->
   <view slot="backText">返回</view>
   <view slot="content">数独</view>
 </cu-custom>
-<view class="top-container" bindtap='emptyAreaClick'>
 
+<view class="top-container" bindtap='emptyAreaClick'>
+  
+  <!-- 头部信息 -->
   <view class='head'>
-    <!--button class='btn' hover-class='btn-hover'>占位符</button-->
-    <view>
-      <text>耗时：{{timeElapse}}</text>
-    </view>
+    <!-- 显示耗时 -->
+    <!-- 使用说明按钮 -->
     <button class='btn' hover-class='btn-hover' catchtap='goToMenu'>使用说明</button>
   </view>
 
+  <!-- 数独网格 -->
   <view class='grid-container'>
-    <view class="row-{{i}}" wx:for="{{[0, 1, 2, 3, 4, 5, 6, 7, 8]}}"wx:for-item="i">
+    <view class="row-{{i}}" wx:for="{{[0, 1, 2, 3, 4, 5, 6, 7, 8]}}" wx:for-item="i">
       <view class="col-{{j}}" wx:for="{{[0, 1, 2, 3, 4, 5, 6, 7, 8]}}" wx:for-item="j">
-        <view wx:if="{{flag==1}}" id='cell_{{i}}_{{j}}' class='grid-cell' style="background: {{readyToInput && i==choosingCell[0] && j==choosingCell[1] ? '#acd6ff' : (initMap[i][j]==0 ? 'white' : '#e5e5e5')}}" catchtap='cellClick'>
+
+        <!-- 判断是否是可输入的单元格 -->
+        <view wx:if="{{flag==1}}" id='cell_{{i}}_{{j}}' class='grid-cell' 
+              style="background: {{readyToInput && i==choosingCell[0] && j==choosingCell[1] ? '#acd6ff' : (initMap[i][j]==0 ? 'white' : '#e5e5e5')}}"
+              catchtap='cellClick'>
           {{initMap[i][j]>0 ? initMap[i][j] : ''}}
         </view>
-        <view wx:else id='cell_{{i}}_{{j}}' class='grid-cell' style="background: {{readyToInput && i==choosingCell[0] && j==choosingCell[1] ? '#acd6ff' : (initMap01[i][j]==0 ? 'white' : '#e5e5e5')}}" catchtap='cellClick'>
-        {{initMap[i][j]>0 ? initMap[i][j] : ''}}
+        <view wx:else id='cell_{{i}}_{{j}}' class='grid-cell' 
+              style="background: {{readyToInput && i==choosingCell[0] && j==choosingCell[1] ? '#acd6ff' : (initMap01[i][j]==0 ? 'white' : '#e5e5e5')}}"
+              catchtap='cellClick'>
+          {{initMap[i][j]>0 ? initMap[i][j] : ''}}
         </view>
+        <!-- flag-判断现在是什么模式 -->
+        <!-- 触发catchtap事件 -->
       </view>
     </view>
   </view>
 
-
+  <!-- 输入区域 -->
   <view>
     <view class='input-row'>
-      <view class='input-num' wx:for='{{[1,2,3,4,5]}}' wx:for-item='i' catchtap='inputNum' data-num='{{i}}'>{{i}}</view>
+      <!-- 输入数字 1 到 5 -->
+      <view class='input-num' wx:for='{{[1,2,3,4,5]}}' wx:for-item='i' catchtap='inputNum' data-num='{{i}}'>
+        {{i}}
+      </view>
     </view>
+
     <view class='input-row'>
-      <view class='input-num' wx:for='{{[6,7,8,9]}}' wx:for-item='i' catchtap='inputNum' data-num='{{i}}'>{{i}}</view>
+      <!-- 输入数字 6 到 9 和 X -->
+      <view class='input-num' wx:for='{{[6,7,8,9]}}' wx:for-item='i' catchtap='inputNum' data-num='{{i}}'>
+        {{i}}
+      </view>
       <view class='input-num red' catchtap='inputNum' data-num='0'>X</view>
+      <!-- 触发inputNum事件 -->
+      <!-- 点击这个按钮时，inputNum 函数可以通过 e.currentTarget.dataset.num 获得 0 -->
     </view>
+
+    <!-- 操作按钮 -->
     <view class="padding flex flex-wrap justify-between align-center bg-white">
       <button class="cu-btn" catchtap='clean'>重新开始</button>
-      <button class="cu-btn round" catchtap='doSolve'>求解</button>
+      <button class="cu-btn round" catchtap='doSolve'>显示答案</button>
     </view>
   </view>
+
   <view class='bottom'>
+    <!-- 空白区域，可用于扩展 -->
   </view>
 
 </view>

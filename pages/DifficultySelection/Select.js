@@ -1,111 +1,179 @@
 // pages/DifficultySelection/Select.js
-var a
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
+   * 页面加载时触发，通常用于初始化页面数据
    */
-  onLoad(options) {
-
-  },
+  onLoad(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
+   * 页面渲染完成时触发
    */
-  onReady() {
-
-  },
+  onReady() {},
 
   /**
    * 生命周期函数--监听页面显示
+   * 页面显示时触发
    */
-  onShow() {
-
-  },
+  onShow() {},
 
   /**
    * 生命周期函数--监听页面隐藏
+   * 页面隐藏时触发
    */
-  onHide() {
-
-  },
+  onHide() {},
 
   /**
    * 生命周期函数--监听页面卸载
+   * 页面卸载时触发，通常用于清理资源
    */
-  onUnload() {
-
-  },
+  onUnload() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
+   * 用户下拉刷新页面时触发
    */
-  onPullDownRefresh() {
-
-  },
+  onPullDownRefresh() {},
 
   /**
    * 页面上拉触底事件的处理函数
+   * 用户上拉触底时触发
    */
-  onReachBottom() {
-
-  },
+  onReachBottom() {},
 
   /**
    * 用户点击右上角分享
+   * 处理用户点击分享按钮时的行为
    */
-  onShareAppMessage() {
+  onShareAppMessage() {},
 
-  },
-  easy: function () {
-    this.tap('easy')
-  },
-  normal: function () {
-    this.tap('normal')
-  },
-  hard: function () {
-    this.tap('hard')
-  },
-  veryhard: function () {
-    this.tap('veryhard')
-  },
+  /**
+   * 点击“简单”按钮时调用此函数
+   * 调用 tap 方法并传递参数“easy”
+   */
+  easy() { this.tap('0'); },
 
-  tap: function (a) {
-    wx.request({
-      url: 'http://apis.juhe.cn/fapig/sudoku/generate?key=&difficulty=normal',
-      data: {
-        "key": 'f10bf1b5f85dd8ca348ac0b9bd3dac27',
-        "difficulty": a
+  /**
+   * 点击“普通”按钮时调用此函数
+   * 调用 tap 方法并传递参数“normal”
+   */
+  normal() { this.tap('1'); },
+
+  /**
+   * 点击“困难”按钮时调用此函数
+   * 调用 tap 方法并传递参数“hard”
+   */
+  hard() { this.tap('2'); },
+
+  /**
+   * 点击“超难”按钮时调用此函数
+   * 调用 tap 方法并传递参数“veryhard”
+   */
+  veryhard() { this.tap('3'); },
+
+  /**
+   * 根据难度生成数独，并存储在本地缓存中
+   * 调用 API 获取数独谜题，并跳转到数独页面
+   */
+  tap(a) {
+    const num = a-'0'; // 将传入的 a 转换为数字
+    // 定义 4 组本地数独数据
+    const sudokuData = {
+      0: [
+        [5, 3, 0, 0, 7, 0, 0, 0, 0],
+        [6, 0, 0, 1, 9, 5, 0, 0, 0],
+        [0, 9, 8, 0, 0, 0, 0, 6, 0],
+        [8, 0, 0, 0, 6, 0, 0, 0, 3],
+        [4, 0, 0, 8, 0, 3, 0, 0, 1],
+        [7, 0, 0, 0, 2, 0, 0, 0, 6],
+        [0, 6, 0, 0, 0, 0, 2, 8, 0],
+        [0, 0, 0, 4, 1, 9, 0, 0, 5],
+        [0, 0, 0, 0, 8, 0, 0, 7, 9]
+      ], // 简单数独
+
+      1: [
+        /* 输入 "普通" 难度数独 */
+        [0, 2, 0, 6, 0, 8, 0, 0, 0],
+        [5, 8, 0, 0, 0, 9, 7, 0, 0],
+        [0, 0, 0, 0, 4, 0, 0, 0, 0],
+        [3, 7, 0, 0, 0, 0, 5, 0, 0],
+        [6, 0, 0, 0, 0, 0, 0, 0, 4],
+        [0, 0, 8, 0, 0, 0, 0, 1, 3],
+        [0, 0, 0, 0, 2, 0, 0, 0, 0],
+        [0, 0, 9, 8, 0, 6, 0, 3, 0],
+        [0, 0, 0, 3, 0, 0, 0, 6, 0]
+      ],
+
+      2: [
+        /* 输入 "困难" 难度数独 */
+        [2, 0, 0, 0, 0, 0, 0, 0, 3],
+        [0, 0, 0, 6, 0, 0, 0, 0, 0],
+        [0, 7, 4, 0, 8, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 3, 0, 0, 2],
+        [0, 8, 0, 0, 4, 0, 0, 1, 0],
+        [6, 0, 0, 5, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 1, 0, 7, 8, 0],
+        [0, 0, 0, 0, 0, 4, 0, 0, 0],
+        [5, 0, 0, 0, 0, 0, 0, 0, 1]
+      ],
+
+      3: [
+        /* 输入 "超难" 难度数独 */
+        [0, 0, 0, 2, 6, 0, 7, 0, 1],
+        [6, 8, 0, 0, 7, 0, 0, 9, 0],
+        [1, 9, 0, 0, 0, 4, 5, 0, 0],
+        [8, 2, 0, 1, 0, 0, 0, 4, 0],
+        [0, 0, 4, 6, 0, 2, 9, 0, 0],
+        [0, 5, 0, 0, 0, 3, 0, 2, 8],
+        [0, 0, 9, 3, 0, 0, 0, 7, 4],
+        [0, 4, 0, 0, 5, 0, 0, 3, 6],
+        [7, 0, 3, 0, 1, 8, 0, 0, 0]
+      ]
+    };
+
+    // 将本地数独数据存储到本地缓存
+    wx.setStorage({
+      key: 'puzzle', // 存储的键名
+      data: sudokuData[num], // 根据传入的 a 值存储不同的数独数据
+      success: () => {
+        console.log(`数独数据存储成功：难度 ${a}`);
       },
-      success: function (res) {
-        if (res.data.reason == 'success') {
-          console.log(res.data.result)
-          wx.setStorage({
-            key: 'puzzle',
-            data: res.data.result.puzzle
-          })
-
-        } else {
-          console.log(res.data.result)
-          wx.showToast({
-            title: '超过请求次数',
-            icon: "error"
-          })
-        }
-
+      fail: () => {
+        console.error('存储数独数据失败');
       }
-    })
+    });
+
+    // 根据参数 a 跳转到不同的界面
+    let targetPage = '';
+    switch (a) {
+      case '0':
+        targetPage = '/pages/0/0-0'; // 简单页面
+        break;
+      case '1':
+        targetPage = '/pages/1/1-0'; // 普通页面
+        break;
+      case '2':
+        targetPage = '/pages/2/2-0'; // 困难页面
+        break;
+      case '3':
+        targetPage = '/pages/3/3-0'; // 超难页面
+        break;
+      default:
+        console.error('无效的难度参数');
+        return;
+    }
+
+    // 执行页面跳转
     wx.navigateTo({
-      url: `/pages/sudoku/sudoku`,
-    })
+      url: targetPage, // 跳转到对应页面
+    });
   }
-
-
 })
+// 基本思路,根据点选的不同按钮换到不同的页面,把原来的easy normal换成了 0,1

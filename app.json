@@ -1,15 +1,18 @@
 {
   "pages": [
-    "pages/star/star",
     "pages/DifficultySelection/Select",
     "pages/sudoku/sudoku",
     "pages/menu/menu",
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/0/0-0",        
+    "pages/1/1-0",        
+    "pages/2/2-0",        
+    "pages/3/3-0" 
   ],
-  "requiredBackgroundModes": ["audio"],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
   "window": {
-    
     "navigationStyle": "custom",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
@@ -17,11 +20,7 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "cu-custom":"/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom"
   },
- 
   "sitemapLocation": "sitemap.json"
-  
-  
-  
 }

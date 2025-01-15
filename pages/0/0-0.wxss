@@ -1,0 +1,98 @@
+.container {
+  padding: 20rpx;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* 标题样式 */
+.title {
+  font-size: 48rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+/* 描述样式 */
+.description {
+  font-size: 32rpx;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 30rpx;
+}
+
+/* 图片容器 */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+/* .example-image {
+  width: 90%;
+  height: auto;
+  border-radius: 10rpx;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.2);
+} */
+
+/* 数独棋盘样式 */
+.sudoku-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border: 1rpx solid #ccc;
+  font-size: 36rpx;
+  background-color: #fff;
+}
+
+.cell.highlight {
+  background-color: #fffbcc; /* 高亮的单元格 */
+}
+
+.cell.focus {
+  border: 2rpx solid #007aff; /* 当前关注的单元格 */
+}
+
+/* 说明文字 */
+.note {
+  font-size: 28rpx;
+  color: #555;
+  text-align: justify;
+  margin-top: 20rpx;
+}
+
+.btn {
+  background: white;
+  border-radius: 10rpx;
+  border-width: 0; 
+  padding: 0;
+  margin: 180rpx;
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 50rpx;
+  /*text-align: center;*/
+  display: inline-block;
+  font-size: 36rpx; /* 增大字体 */
+  line-height: 100rpx; /* 设置与高度相等，垂直居中 */
+  text-align: center; /* 水平居中 */
+  display: inline-block; /* 保持按钮块级显示 */
+  vertical-align: middle; /* 保证文字在 inline-block 中垂直居中 */
+}
+
+.btn-hover {
+  background: #bbbbbb;
+  color: white;
+}
+
+

@@ -3,10 +3,10 @@
   <view slot="backText">返回</view>
   <view slot="content">数独</view>
 </cu-custom>
-<view style="font-family:fantasy;font-size:30px;display: flex;justify-content: center;align-items: center;margin-top: 100px;">难度选择</view>
+<view style="font-family:fantasy;font-size:30px;display: flex;justify-content: center;align-items: center;margin-top: 100px;">解题方法训练</view>
 <view class="padding flex flex-direction">
-  <button class="cu-btn bg-green lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px;" bindtap="easy">简单</button>
-  <button class="cu-btn bg-green margin-tb-sm lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px; " bindtap="normal">普通</button>
-  <button class="cu-btn bg-green margin-tb-sm lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px;" bindtap="hard">困难</button>
-  <button class="cu-btn bg-green margin-tb-sm lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px;" bindtap="veryhard">非常难</button>
+  <button class="cu-btn bg-green lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px;" bindtap="easy">唯一剩余格</button>
+  <button class="cu-btn bg-green margin-tb-sm lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px; " bindtap="normal">唯一候选数</button>
+  <button class="cu-btn bg-green margin-tb-sm lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px;" bindtap="hard">显性单一数</button>
+  <button class="cu-btn bg-green margin-tb-sm lg" style="margin-left: 100px;margin-right: 100px;margin-top: 20px;" bindtap="veryhard">显性三色数</button>
 </view>

@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">数独</view></cu-custom>
+
+ 
+<view class="container">
+  <!-- 标题 -->
+  <view class="title">
+    <text>“显性三数组”解法</text>
+  </view>
+
+  <!-- 描述文字 -->
+  <view class="description">
+    <text>这种数独解法建立在之前的“显性数对”基础之上。但“显性三数组”不是基于笔记中的两个数字，而是基于三个数字。这是唯一的区别。为了更好地理解，我们来看一个例子。
+
+</text>
+  </view>
+
+  <!-- 图片插入位置 -->
+  <view class="image-container">
+    <image src="../../images/3_0.png" class="example-image" mode="aspectFit"></image>
+    <image src="../../images/3_1.png" class="example-image" mode="aspectFit"></image>
+  </view>
+
+  <!-- 数独棋盘展示 -->
+  
+
+  <!-- 进一步说明文字 -->
+  <view class="note">
+    <text>我们看看左上角的宫。它的三个底部单元格包含笔记 1、5；1、8 和 1、5、8。 这说明这些单元格包含数字 1、5 和 8，但我们还不知道每个数字的具体位置。我们知道的是，1、5 和 8 不能填在这一宫的其他单元格中。
+    因此，我们可以将它们从这些笔记中删除。</text>
+  </view>
+</view>
+
+   <!-- 头部信息 -->
+   <view class='head'>
+    <!-- 使用说明按钮 -->
+    <button class='btn' hover-class='btn-hover' catchtap='goToMenu'>try it now!</button>
+  </view>
+

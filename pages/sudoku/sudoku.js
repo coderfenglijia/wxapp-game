@@ -1,5 +1,5 @@
 var app = getApp();
-
+const SudokuSolver = require('./SudokuSolver');
 var SudokuMap = require('./SudokuMap.js');
 var Solver = require('./Solver.js');
 var config = {
@@ -66,26 +66,9 @@ var config = {
       }
     })
   },
-//背景音乐
-  onShow : function() {
-    this.player(wx.getBackgroundAudioManager())
-  },
-  player(e) {
-    e.title = '背景音乐'
-    e.src = "http://music.163.com/song/media/outer/url?id=543986947.mp3"
-    //音乐播放结束后继续播放此音乐，循环不停的播放
-    e.onEnded(() => {
-      this.player(wx.getBackgroundAudioManager())
-    })
-  },
-   // 页面卸载时候暂停播放（不加页面将一直播放）
-   onUnload: function () {
-    wx.getBackgroundAudioManager().stop();
-  },
-  // 小程序隐藏时候暂停播放（不加页面将一直播放）
-  onHide() {
-    wx.getBackgroundAudioManager().stop();
-  },
+  // 在页面加载时，onLoad 会尝试从微信本地存储 (wx.getStorage) 中读取一个键为 'puzzle' 的数独数据。如果读取成功，则将其赋值给 initMap01 和 initMap，以便渲染页面。
+
+
   /**
    * 跳转到'使用说明'
    */
@@ -105,6 +88,7 @@ var config = {
       readyToInput : true
     });
   },
+  // 解析ID,来更新choosingCell 和readyToInput两个变量
 
   /**
    * 点击数字输入区的某个数字

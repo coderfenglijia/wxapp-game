@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">数独</view></cu-custom>
+
+ 
+<view class="container">
+  <!-- 标题 -->
+  <view class="title">
+    <text>“唯一剩余格”解法</text>
+  </view>
+
+  <!-- 描述文字 -->
+  <view class="description">
+    <text>“唯一剩余格”是另一种基础数独策略。它基于以下事实：数字在每个 3×3 宫、每行或每列中不能重复。</text>
+  </view>
+
+  <!-- 图片插入位置 -->
+  <view class="image-container">
+    <image src="../../images/0.png" class="example-image" mode="aspectFit"></image>
+  </view>
+
+  <!-- 数独棋盘展示 -->
+  
+
+  <!-- 进一步说明文字 -->
+  <view class="note">
+    <text>我们来看看 3×3 宫的例子。在每宫、每行和每列中，始终都必须包含数字 8。现在行和列中已经有了 8。我们已经知道，数字不能重复。因此，我们不能再将 8 填到那里。这说明这个宫里只剩下一个单元格，我们应该将 8 填在那里。</text>
+  </view>
+</view>
+
+   <!-- 头部信息 -->
+   <view class='head'>
+    <!-- 使用说明按钮 -->
+    <button class='btn' hover-class='btn-hover' catchtap='goToMenu'>try it now!</button>
+  </view>
+
